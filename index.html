@@ -27,8 +27,6 @@ body {
   font-size:28px;
   font-weight:bold;
   text-shadow:0 0 5px #ff99cc,0 0 10px #ff6699;
-  opacity:0;
-  transition: opacity 1s;
   line-height:1.4;
 }
 /* Hearts */
@@ -165,12 +163,12 @@ function nextSlide(){
     document.getElementById("bgmusic").play().catch(()=>{});
     createBgHearts();
   }
-  if(currentSlide<messages.length-1){
+  if(currentSlide<messages.length){
     typeEffect(el,messages[currentSlide]);
-  } else {
-    typeEffect(el,messages[currentSlide]);
-    createHearts();
-    createFireworks();
+    if(currentSlide===messages.length-1){
+      createHearts();
+      createFireworks();
+    }
   }
 }
 
