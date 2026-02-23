@@ -26,7 +26,7 @@ body {
 .message {
   font-size:28px;
   font-weight:bold;
-  text-shadow: 0 0 5px #ff99cc,0 0 10px #ff6699;
+  text-shadow:0 0 5px #ff99cc,0 0 10px #ff6699;
   opacity:0;
   transition: opacity 1s;
 }
@@ -66,8 +66,10 @@ let typing = false;
 const messages = [
   "Happy Birthday My Beautiful Sannpp 🎂❤️",
   "You make me smile even on my worst days 😊\nYou are my peace, my happiness, my everything 💕",
-  "Every moment with you feels magical ✨❤️",
+  "Every moment with you feels magical ✨",
   "I promise to protect you, support you, and love you always 🤍\nNo matter what life brings, I am yours ♾️",
+  "You are my sunshine on cloudy days 🌸\nMy heart beats for you every second ❤️",
+  "With you, every day feels like a dream ✨\nBeing yours is the happiest feeling 💕",
   "Happy Birthday Sannpp 🎂❤️\nI Love You So Much 💖\nYou make my life beautiful every single day 🌸\nForever Yours,\nMungeesa"
 ];
 
@@ -84,6 +86,18 @@ function createBgHearts(){
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(),12000);
   },500);
+}
+
+/* Floating hearts */
+function createHearts(){
+  for(let i=0;i<35;i++){
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+    document.body.appendChild(heart);
+  }
 }
 
 /* Fireworks */
@@ -154,6 +168,7 @@ function nextSlide(){
     typeEffect(el,messages[currentSlide]);
   } else {
     typeEffect(el,messages[currentSlide]);
+    createHearts();
     createFireworks();
   }
 }
